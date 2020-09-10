@@ -7,8 +7,13 @@
         body, html {
             margin:0;
             height:100%;
-            font-size: calc(12px + 1vmax)
+            font-size: calc(12px + 1vmax);
+            font-family:arial;
         }
+        h1 {
+            margin:0;
+        }
+
         #bg {
             height:100%;
         }
@@ -65,27 +70,22 @@
     </script>
 </head>
 <body>
-    <div id=bg>
-        <h1 id=logo>
-            <span parax>P</span>
-            <span parax>A</span>
-            <span parax>R</span>
-            <span parax>A</span>
-            <span parax>X</span>
-        </h1>
-    </div>
 
-    <div style="max-width:800px; margin:auto; padding:2em; background:rgba(255,255,255,.8); border:1px solid">
-        <h2>How to use</h2>
-        <p>Include the script from...</p>
-        <p>Add the attribute "parax" to each element you like to change the speed.</p>
-        <pre>&lt;span parax style="--parax-speed:2"&gt;
-    I am twice as fast
+<div id=bg>
+    <h1 id=logo>
+        <span parax>P</span>
+        <span parax>A</span>
+        <span parax>R</span>
+        <span parax>A</span>
+        <span parax>X</span>
+    </h1>
+</div>
+<div style="max-width:800px; margin:auto; padding:2em; background:rgba(255,255,255,.8); border:1px solid">
+    <h2>How to use</h2>
+    <p>Include the script from...</p>
+    <p>Add the attribute "parax" to each element you like to change the speed.</p>
+    <pre>&lt;span parax style="--parax-speed:2"&gt;
+I am twice as fast
 &lt;/span&gt;
-        </pre>
-    </div>
-
-<script type=module>
-new Parax(box);
-
-</script>
+    </pre>
+</div>

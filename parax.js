@@ -1,6 +1,3 @@
-// lib
-
-
 const pool = new Map();
 
 window.Parax = class {
@@ -13,11 +10,13 @@ window.Parax = class {
         if (pool.size === 1) addGlobalListeners();
     }
     positionChange(){
-        this.oRect = vpRectWithoutTransform(this.el);
+		this.oRect = vpRectWithoutTransform(this.el);
+		this.oRect.centerY = this.oRect.top + this.oRect.height/2;
     }
     onScroll(top, left){
-        const moveBy = (this.speed - 1) * -top;
-        this.el.style.setProperty('transform', 'translate3d(0, '+moveBy+'px, 0)');
+		top = top + winHeight/2 - this.oRect.centerY;
+		let y = (this.speed-1) * -top ;
+        this.el.style.setProperty('transform', 'translate3d(0, '+y+'px, 0)');
     }
 };
 
@@ -41,94 +40,22 @@ function addGlobalListeners(){
 	addEventListener('resize', onScroll);
 	addEventListener('load', onScroll);
 }
-/*
-function removeGlobalListeners(){
-	removeEventListener('resize',calcViewportRects);
-	removeEventListener('DOMContentLoaded',calcViewportRects);
-    removeEventListener('load',calcViewportRects);
-	document.removeEventListener('scroll', onScroll);
-	removeEventListener('resize', onScroll);
-	removeEventListener('load', onScroll);
-}
-*/
+// function removeGlobalListeners(){
+// 	removeEventListener('resize',calcViewportRects);
+// 	removeEventListener('DOMContentLoaded',calcViewportRects);
+//     removeEventListener('load',calcViewportRects);
+// 	document.removeEventListener('scroll', onScroll);
+// 	removeEventListener('resize', onScroll);
+// 	removeEventListener('load', onScroll);
+// }
 
-/*
-// cache innerHeight, bringt das was?
+// cache innerHeight, Is that of any use?
 let winHeight = innerHeight;
 let winWidth = innerWidth;
 addEventListener('resize',(e)=>{
 	winHeight = innerHeight;
 	winWidth = innerWidth;
 });
-
-window.parax = function(el, offset){
-	this.viewport = el;
-	//this.content = el.c1Find('> .-content');
-	this.content = el.querySelector(':scope > .-content');
-	this.offset = offset;
-	this.content.style.top    = - offset / 2 + 'px';
-	this.content.style.bottom = - offset / 2 + 'px';
-
-	//this.content.style.transition = 'transform 10ms linear'; // performs very bad in edge / ie
-
-	var self = this;
-
-	// cached position
-	function calcViewportRect(){
-		var rect = el.getBoundingClientRect();
-		self.cachedViewportRect = {
-			top: rect.top + pageYOffset,
-			height: rect.height,
-		};
-	}
-	calcViewportRect();
-	addEventListener('resize',calcViewportRect);
-	addEventListener('DOMContentLoaded',calcViewportRect);
-	addEventListener('load',calcViewportRect);
-
-	// positionize
-	function positionize(e){
-		// if (!self.viewport.offsetParent) { ... } // disconnected from the dom // todo: takes long!
-		self.positionize(e);
-	}
-	positionize();
-	document.addEventListener('scroll', positionize);
-	addEventListener('resize', positionize);
-	addEventListener('load', positionize);
-	this.content.addEventListener('load',positionize);
-
-}
-parax.prototype = {
-	positionize:function(e){
-		var part = this.partVisible(e);
-		//if (part < -0.1 || part > 1.1) return;
-		var faktor = (part - .5)*2; // -1 bis 1;
-		var value = faktor*(this.offset/2);
-		//value = Math.round( value * 10) / 10;
-		value = Math.round(value);
-		var content = this.content;
-		requestAnimationFrame(function(){
-			content.style.transform = 'translate3d(0, '+value+'px, 0)';
-		});
-	},
-	partVisible: function(e){
-		var pageY = e && e.pageY ? e.pageY : pageYOffset; // firefox
-		var rect = this.cachedViewportRect;
-		var totalPixels = winHeight + rect.height;
-		var activePixel = winHeight - (rect.top - pageY);
-		return activePixel / totalPixels; // 0 = element under the bottom, 1 = element above the top
-	}
-}
-*/
-
-/*
-c1.onElement('[parax]', function(el){
-	var wrapper = el.c1Find('> .-viewport');
-	if (!wrapper) return;
-	new parax(wrapper, 360)
-});
-*/
-
 
 
 /* helpers */
