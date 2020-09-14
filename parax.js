@@ -1,6 +1,5 @@
 import 'https://unpkg.com/wicked-elements@3.1.1/min.js';
 
-
 const pool = new Map();
 
 const Parax = class {
