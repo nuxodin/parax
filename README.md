@@ -2,8 +2,10 @@
 parallax on your website
 
 ## features
+- fast!
 - easy API
 - works for dynamic added elements
+- very lightweight
 
 
 ## demo 
