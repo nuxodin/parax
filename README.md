@@ -5,7 +5,7 @@ parallax on your website
 - fast!
 - easy API
 - works for dynamic added elements
-- very lightweight
+- lightweight < 4k minified
 
 
 ## Demo 
