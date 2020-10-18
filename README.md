@@ -15,7 +15,7 @@ https://rawcdn.githack.com/nuxodin/parax/ac6e7b08e96fac4811ed70256d31d0c753af35f
 ## ussage:
 
 ```js
-import 'https://cdn.jsdelivr.net/gh/nuxodin/parax@1.0.0/parax.min.js';
+import 'https://cdn.jsdelivr.net/gh/nuxodin/parax@1.1.0/parax.min.js';
 ```
 
 ```html
@@ -23,5 +23,3 @@ import 'https://cdn.jsdelivr.net/gh/nuxodin/parax@1.0.0/parax.min.js';
   I am twice as fast!
 </div>
 ```
-
-
