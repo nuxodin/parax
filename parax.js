@@ -5,9 +5,9 @@ const pool = new Map();
 const Parax = class {
     constructor(el){
 		this.el = el;
-        pool.set(el, this);
-        this.positionChange();
-        let style = getComputedStyle(this.el);
+		pool.set(el, this);
+		this.positionChange();
+		let style = getComputedStyle(this.el);
 
 		this.speed = parseFloat(style.getPropertyValue('--parax-speed'));
 
@@ -96,7 +96,5 @@ wickedElements.define(
 		},
         connected() {}, // todo
         disconnected() {}, // todo
-        //observedAttributes: ['parax'], // todo
-        //attributeChanged(name, oldValue, newValue) {}, // todo
     }
 );
