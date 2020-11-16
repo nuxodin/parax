@@ -15,7 +15,7 @@ const Parax = class {
         //if (isNaN(direction)) direction = 180;
         //this.angle = (direction + 90) / 180 * Math.PI;
 
-		if (pool.size === 1) addGlobalListeners();
+        if (pool.size === 1) addGlobalListeners();
     }
     positionChange(){
         this.oRect = vpRectWithoutTransform(this.el);
