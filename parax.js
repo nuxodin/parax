@@ -4,34 +4,34 @@ const pool = new Map();
 
 const Parax = class {
     constructor(el){
-		this.el = el;
+        this.el = el;
         pool.set(el, this);
         this.positionChange();
         let style = getComputedStyle(this.el);
 
-		this.speed = parseFloat(style.getPropertyValue('--parax-speed'));
+        this.speed = parseFloat(style.getPropertyValue('--parax-speed'));
 
-		//let direction = parseFloat(style.getPropertyValue('--parax-direction'));
-		//if (isNaN(direction)) direction = 180;
-		//this.angle = (direction + 90) / 180 * Math.PI;
+        //let direction = parseFloat(style.getPropertyValue('--parax-direction'));
+        //if (isNaN(direction)) direction = 180;
+        //this.angle = (direction + 90) / 180 * Math.PI;
 
         if (pool.size === 1) addGlobalListeners();
     }
     positionChange(){
-		this.oRect = vpRectWithoutTransform(this.el);
-		this.oRect.centerY = this.oRect.top + this.oRect.height/2;
+        this.oRect = vpRectWithoutTransform(this.el);
+        this.oRect.centerY = this.oRect.top + this.oRect.height/2;
     }
     onScroll(pageCenterY, pageCenterX){ // this has to be very fast, can it be improved?
-		const centerDiff = pageCenterY - this.oRect.centerY;
-		const yRoute = (this.speed-1) * -centerDiff;
+        const centerDiff = pageCenterY - this.oRect.centerY;
+        const yRoute = (this.speed-1) * -centerDiff;
 
-		//const y = yRoute * Math.sin(this.angle);
-		//const x = yRoute * Math.cos(this.angle);
+        //const y = yRoute * Math.sin(this.angle);
+        //const x = yRoute * Math.cos(this.angle);
 
-		// todo, only transform if visible?
-		//this.el.style.setProperty('transform', 'translate3d('+x+'px,'+y+'px,0)');
-		this.el.style.setProperty('transform', 'translate3d('+0+'px,'+yRoute+'px,0)');
-		//this.el.style.setProperty('--parax-y', yRoute);
+        // todo, only transform if visible?
+        //this.el.style.setProperty('transform', 'translate3d('+x+'px,'+y+'px,0)');
+        this.el.style.setProperty('transform', 'translate3d('+0+'px,'+yRoute+'px,0)');
+        //this.el.style.setProperty('--parax-y', yRoute);
     }
 };
 
@@ -48,28 +48,20 @@ function onScroll(e){
 }
 
 function addGlobalListeners(){
-	addEventListener('resize',calcViewportRects);
-	addEventListener('DOMContentLoaded',calcViewportRects);
+    addEventListener('resize',calcViewportRects);
+    addEventListener('DOMContentLoaded',calcViewportRects);
     addEventListener('load',calcViewportRects);
-	addEventListener('resize', onScroll);
-	addEventListener('load', onScroll);
-	document.addEventListener('scroll', onScroll);
+    addEventListener('resize', onScroll);
+    addEventListener('load', onScroll);
+    document.addEventListener('scroll', onScroll);
 }
-// function removeGlobalListeners(){
-// 	removeEventListener('resize',calcViewportRects);
-// 	removeEventListener('DOMContentLoaded',calcViewportRects);
-//  removeEventListener('load',calcViewportRects);
-// 	removeEventListener('resize', onScroll);
-// 	removeEventListener('load', onScroll);
-// 	document.removeEventListener('scroll', onScroll);
-// }
 
 // cache innerHeight, Is that of any use?
 let winHeight = innerHeight;
 let winWidth = innerWidth;
 addEventListener('resize',(e)=>{
-	winHeight = innerHeight;
-	winWidth = innerWidth;
+    winHeight = innerHeight;
+    winWidth = innerWidth;
 });
 
 
@@ -96,7 +88,5 @@ wickedElements.define(
 		},
         connected() {}, // todo
         disconnected() {}, // todo
-        //observedAttributes: ['parax'], // todo
-        //attributeChanged(name, oldValue, newValue) {}, // todo
     }
 );
