@@ -85,7 +85,7 @@ wickedElements.define(
     '[parax]', {
         init() {
             new Parax(this.element);
-		},
+        },
         connected() {}, // todo
         disconnected() {}, // todo
     }
