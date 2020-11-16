@@ -1,5 +1,5 @@
 # PARAX
-parallax on your website
+Parallax your Elements
 
 ## Features
 - fast!
