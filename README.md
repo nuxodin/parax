@@ -9,7 +9,7 @@ parallax on your website
 
 
 ## Demo 
-https://rawcdn.githack.com/nuxodin/parax/ac6e7b08e96fac4811ed70256d31d0c753af35f9/tests/demo.html
+https://raw.githack.com/nuxodin/parax/master/tests/demo.html
 
 
 ## Ussage:
@@ -23,3 +23,7 @@ import 'https://cdn.jsdelivr.net/gh/nuxodin/parax@1.1.0/parax.min.js';
   I am twice as fast!
 </div>
 ```
+
+# Also interesting
+Parallax scrolling Backgrounds
+https://github.com/nuxodin/parax-bg
