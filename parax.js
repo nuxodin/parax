@@ -31,7 +31,6 @@ const Parax = class {
         // todo, only transform if visible?
         //this.el.style.setProperty('transform', 'translate3d('+x+'px,'+y+'px,0)');
         this.el.style.setProperty('transform', 'translate3d('+0+'px,'+yRoute+'px,0)');
-        //this.el.style.setProperty('--parax-y', yRoute);
     }
 };
 
