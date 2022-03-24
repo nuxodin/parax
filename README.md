@@ -1,6 +1,8 @@
-# new location:
+# New location:
+This repo has a new location:
 https://github.com/u1ui/parallax.attr
 
+---
 
 # PARAX
 Parallax your Elements
@@ -27,7 +29,3 @@ import 'https://cdn.jsdelivr.net/gh/nuxodin/parax@1.1.0/parax.min.js';
   I am twice as fast!
 </div>
 ```
-
-# Also interesting
-Parallax scrolling Backgrounds
-https://github.com/nuxodin/parax-bg
