@@ -1,3 +1,7 @@
+# new location:
+https://github.com/u1ui/parallax.attr
+
+
 # PARAX
 Parallax your Elements
 
